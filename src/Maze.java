@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class Maze{
+public class Maze extends JPanel{
 
     public Maze(JFrame root) {
         this.mazeContent = getMazeContent(NO_WALL);
@@ -12,7 +12,8 @@ public class Maze{
         this.height = mazeContent.length;
         this.width = mazeContent[0].length();
 
-        this.pixels = new JPanel[this.height][this.width];
+        this.pixels = new JLabel[this.height][this.width];
+        this.timeInterval = 0;
 
         this.maze_panel = new JPanel();
         this.maze_panel.setPreferredSize(new Dimension(this.width*40, this.height*40));
@@ -42,12 +43,27 @@ public class Maze{
     public void changeColor(int[] point) {
         if (!isStart(point))
             this.pixels[point[1]][point[0]].setBackground(Color.CYAN);
+
+//        addPixels();
     }
 
     public void pathFound(int[][] soln) {
-        for (int i = soln.length; i > 0; i--) {
-            //this.pixels[soln[i][1]][soln[i][0]].setBackground(Color.BLUE);
+        // reverse as soln contains from goal to start (soln path in reverse order)
+        for (int i = soln.length-2; i > 0; i--) {
+            int pixels_x = soln[i][0];
+            int pixels_y = soln[i][1];
+            String arrow = "";
+            if (soln[i-1][0] < pixels_x) // left
+                arrow = "\u2190";
+            else if (soln[i-1][0] > pixels_x) // right
+                arrow = "\u2192";
+            else if (soln[i-1][1] < pixels_y) // up
+                arrow = "\u2191";
+            else if (soln[i-1][1] > pixels_y) // down
+                arrow = "\u2193";
+            this.pixels[pixels_y][pixels_x].setText(arrow);
         }
+//        addPixels();
     }
 
     public ArrayList<int[]> neighbor(int[] point) {
@@ -69,6 +85,10 @@ public class Maze{
             neighbor.add(0, new int[]{x-1, y});
 
         return neighbor;
+    }
+
+    public void reset() {
+        initializeMaze();
     }
 
     private boolean isWall(int x, int y) {
@@ -102,10 +122,12 @@ public class Maze{
         int y=0;
         for (String line : this.mazeContent) {
             for (int x = 0; x < line.length(); x++) {
+                JLabel pixel = new JLabel();
+                pixel.setHorizontalAlignment(JLabel.CENTER);
+                pixel.setPreferredSize(new Dimension(this.width*2, this.height*2));
+                pixel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+                pixel.setOpaque(true);
 
-                JPanel pixel = new JPanel();
-                pixel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-                pixel.setPreferredSize(new Dimension(this.width, this.height));
                 char letter = line.charAt(x);
 
                 if (letter == 'W')
@@ -120,7 +142,6 @@ public class Maze{
                 } else
                     pixel.setBackground(Color.WHITE);
 
-                pixel.setPreferredSize(new Dimension(this.width*2, this.height*2));
                 this.pixels[y][x] = pixel;
             }
             y++;
@@ -129,18 +150,19 @@ public class Maze{
     }
 
     private void addPixels() {
-        for (JPanel pixelLine[] : pixels)
-            for (JPanel pixel : pixelLine)
+        for (JLabel pixelLine[] : pixels)
+            for (JLabel pixel : pixelLine)
                 this.maze_panel.add(pixel);
     }
 
     public JPanel maze_panel;
-    private JPanel[][] pixels;
+    private JLabel[][] pixels;
 
     private static String NO_WALL = "/Users/somayoshida/Program/Java Projects/Path Finding Algorithms Visualizer/src/no_wall.txt";
     private String[] mazeContent;
     private JFrame root;
 
+    private int timeInterval;
     private int[] starting_point, goal_point;
     private int width, height;
 

@@ -19,6 +19,11 @@ public class Menu {
             }
         });
         this.resetButton = new JButton("Reset");
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
         this.panel.add(this.startButton);
         this.panel.add(this.resetButton);
     }
