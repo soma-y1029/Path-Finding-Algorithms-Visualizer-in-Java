@@ -1,5 +1,5 @@
 # Path-Finding-Algorithms-Visualizer-Java
-Path Finding Algorithms Visualizer with TkInter<br>
+Path Finding Algorithms Visualizer with swing<br>
 Currently, DFS, BFS are supported.<br>
 Basic for algorithm implementation are the same as Python version.
 [Python version is also available.](https://github.com/soma-y1029/Path-Finding-Algorithms-Visualizer-in-Java)
