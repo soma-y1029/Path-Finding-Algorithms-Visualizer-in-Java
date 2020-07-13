@@ -24,18 +24,32 @@ public class Menu {
             public void actionPerformed(ActionEvent e) {
             }
         });
+
+        menuList = new JComboBox(algMenu);
+        this.menuList.setSelectedIndex(0);
+        this.menuList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedAlg = algMenu[menuList.getSelectedIndex()];
+            }
+        });
+
+        this.panel.add(this.menuList);
         this.panel.add(this.startButton);
         this.panel.add(this.resetButton);
     }
 
     private void start() {
-        String selected_alg = "DFS";
         algs = new Algs(this.maze);
-        this.maze.pathFound(algs.run_alg(selected_alg));
+        this.maze.pathFound(algs.run_alg(selectedAlg));
     }
+    private String[] algMenu = {"Choose Algorithm", "DFS", "BFS"};
+    private String selectedAlg;
+
     private Maze maze;
     private Algs algs;
     private JButton startButton;
     private JButton resetButton;
+    private JComboBox menuList;
     public JPanel panel;
 }

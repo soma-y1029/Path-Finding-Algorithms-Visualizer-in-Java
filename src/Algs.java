@@ -7,8 +7,10 @@ public class Algs {
     }
 
     public int[][] run_alg(String alg) {
-        if (alg == "DFS")
+        if (alg.equals("DFS"))
             return dfs();
+        if (alg.equals("BFS"))
+            return bfs();
 
         return null;
     }
@@ -56,6 +58,22 @@ public class Algs {
         }
         return null;
     }
+
+    private int[][] bfs() {
+        Set<List<Integer>> visited = new HashSet<>();
+        ArrayList<Node> fringeQueue = new ArrayList<>();
+        Node root = new Node(null, maze.getStarting_point());
+        fringeQueue.add(root);
+
+        while (fringeQueue.size() != 0) {
+            Node current = fringeQueue.remove(0); // popleft
+            if (maze.isGoal(current.position))
+                return solutionPath(root, current);
+            fringeQueue = getUnvisited(current, visited, fringeQueue);
+        }
+        return null;
+    }
+
 
     private Maze maze;
     private String alg;
