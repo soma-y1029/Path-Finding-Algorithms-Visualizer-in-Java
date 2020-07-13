@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0fb681d1-2c30-454d-8ef8-5ea78d889af6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Path Finding Algorithms Visualizer/Algs$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Path Finding Algorithms Visualizer/Algs$Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Path Finding Algorithms Visualizer/Algs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Path Finding Algorithms Visualizer/Algs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Path Finding Algorithms Visualizer/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Path Finding Algorithms Visualizer/Driver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Path Finding Algorithms Visualizer/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Path Finding Algorithms Visualizer/Maze.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Path Finding Algorithms Visualizer/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Path Finding Algorithms Visualizer/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Maze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594609182396</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Reset button is implemented.&#10;'Reset' initialize maze to clean panel.">
+      <created>1594610371024</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1594610371024</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -103,25 +106,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="arrow when path found is added to the final solution path" />
     <MESSAGE value="BFS is implemented &#10;JCombo Box for algorithm menu is added" />
-    <option name="LAST_COMMIT_MESSAGE" value="BFS is implemented &#10;JCombo Box for algorithm menu is added" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Maze.java</url>
-          <line>85</line>
-          <properties class="Maze" method="reset">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Menu.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Reset button is implemented.&#10;'Reset' initialize maze to clean panel." />
+    <option name="LAST_COMMIT_MESSAGE" value="Reset button is implemented.&#10;'Reset' initialize maze to clean panel." />
   </component>
 </project>

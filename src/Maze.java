@@ -15,7 +15,6 @@ public class Maze extends JPanel{
         this.pixels = new JLabel[this.height][this.width];
         this.timeInterval = 0;
 
-
         setMaze();
         initializeMaze();
     }
@@ -106,7 +105,7 @@ public class Maze extends JPanel{
     private String[] getMazeContent(String fileName) {
         try
         {
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            BufferedReader reader = new BufferedReader(new FileReader(DIRECTORY+fileName));
             ArrayList<String> mazeContent = new ArrayList<>();
             String line;
             int i = 0;
@@ -165,8 +164,8 @@ public class Maze extends JPanel{
 
     public JPanel mazePanel;
     private JLabel[][] pixels;
-
-    private static String NO_WALL = "/Users/somayoshida/Program/Java Projects/Path Finding Algorithms Visualizer/src/no_wall.txt";
+    private static String DIRECTORY = "/";
+    private static String NO_WALL = "no_wall.txt";
     private String[] mazeContent;
     private JFrame root;
 
