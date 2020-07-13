@@ -19,9 +19,10 @@ public class Menu {
             }
         });
         this.resetButton = new JButton("Reset");
-        startButton.addActionListener(new ActionListener() {
+        resetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                maze.reset();
             }
         });
 
@@ -43,6 +44,7 @@ public class Menu {
         algs = new Algs(this.maze);
         this.maze.pathFound(algs.run_alg(selectedAlg));
     }
+
     private String[] algMenu = {"Choose Algorithm", "DFS", "BFS"};
     private String selectedAlg;
 

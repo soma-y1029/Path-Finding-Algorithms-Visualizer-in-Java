@@ -15,12 +15,8 @@ public class Maze extends JPanel{
         this.pixels = new JLabel[this.height][this.width];
         this.timeInterval = 0;
 
-        this.maze_panel = new JPanel();
-        this.maze_panel.setPreferredSize(new Dimension(this.width*40, this.height*40));
-        this.maze_panel.setLayout(new GridLayout(this.height, this.width));
-        this.maze_panel.setBackground(Color.GRAY);
-        this.maze_panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
+        setMaze();
         initializeMaze();
     }
 
@@ -88,7 +84,19 @@ public class Maze extends JPanel{
     }
 
     public void reset() {
+        this.root.remove(mazePanel);
+        setMaze();
         initializeMaze();
+        root.add(this.mazePanel, BorderLayout.CENTER);
+        root.pack();
+    }
+
+    private void setMaze() {
+        this.mazePanel = new JPanel();
+        this.mazePanel.setPreferredSize(new Dimension(this.width*40, this.height*40));
+        this.mazePanel.setLayout(new GridLayout(this.height, this.width));
+        this.mazePanel.setBackground(Color.GRAY);
+        this.mazePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
     private boolean isWall(int x, int y) {
@@ -152,10 +160,10 @@ public class Maze extends JPanel{
     private void addPixels() {
         for (JLabel pixelLine[] : pixels)
             for (JLabel pixel : pixelLine)
-                this.maze_panel.add(pixel);
+                this.mazePanel.add(pixel);
     }
 
-    public JPanel maze_panel;
+    public JPanel mazePanel;
     private JLabel[][] pixels;
 
     private static String NO_WALL = "/Users/somayoshida/Program/Java Projects/Path Finding Algorithms Visualizer/src/no_wall.txt";

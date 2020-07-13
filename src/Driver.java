@@ -19,7 +19,7 @@ public class Driver {
         root_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         root_frame.add(menu.panel, BorderLayout.NORTH);
-        root_frame.add(maze.maze_panel, BorderLayout.CENTER);
+        root_frame.add(maze.mazePanel, BorderLayout.CENTER);
 
         root_frame.pack();
         root_frame.setVisible(true);
